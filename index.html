@@ -1,1 +1,222 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Daniele • 15 anos</title><style>*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#fff;font-family:Georgia,serif;color:#123d68}body{display:grid;place-items:center}.invite{position:relative;width:min(100vw,calc(100dvh * 941 / 1672));height:min(100dvh,calc(100vw * 1672 / 941));overflow:hidden}.invite img{width:100%;height:100%;display:block}.hit{position:absolute;top:72.5%;height:16.8%;cursor:pointer;border:0;background:transparent;border-radius:15px}.hit:focus-visible{outline:3px solid #286fba}.a{left:4%;width:21.4%}.b{left:26.5%;width:21.3%}.c{left:49%;width:21.3%}.d{left:71.5%;width:24%}#sound{position:fixed;right:10px;top:10px;z-index:3;padding:10px 13px;border:1px solid #aec6e0;border-radius:30px;background:#fffffff0;color:#174a7a}.overlay{position:fixed;inset:0;background:#061c3870;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.overlay.on{display:flex}.sheet{text-align:center;width:min(410px,100%);max-height:90dvh;overflow:auto;border-radius:22px;background:#fffefa;padding:27px 22px;box-shadow:0 12px 40px #0015;border:1px solid #bbd3ea}.sheet h1{font-weight:normal;font-size:26px}.sheet p{line-height:1.5}.store{padding:15px 0;border-top:1px solid #dbe6f2}.store h2{font-weight:normal}.store small{display:block;margin-bottom:12px}.store a{display:inline-block;padding:12px 20px;border-radius:25px;background:#10497c;color:white;text-decoration:none}.back{display:block;margin:19px auto 0;border:0;background:transparent;text-decoration:underline;color:#194d7a;font-size:16px}</style></head><body><main class="invite"><img src="convite.png" alt="Convite Daniele 15 anos, 12 de fevereiro de 2027 às 20h, Clube Comercial. Confirmar até 30/01/2027."><a class="hit a" aria-label="Confirmar presença" target="_blank" rel="noopener" href="https://wa.me/5555999298604?text=Ol%C3%A1%21%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Daniele.%20Meu%20nome%20%C3%A9%3A%20"></a><a class="hit b" aria-label="Local da festa" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Clube%20Comercial%20Rua%20dos%20Andradas%20384%20Santana%20do%20Livramento%20RS"></a><a class="hit c" aria-label="Presente via Pix" target="_blank" rel="noopener" href="https://nubank.com.br/cobrar/vjddt/6aceb1f2-0e6e-4c75-825a-26c3c8984ac2"></a><button id="gift" class="hit d" aria-label="Sugestões de presente"></button></main><button id="sound">♪ Música</button><audio id="music" src="musica-daniele.mp3" loop preload="auto"></audio><section id="panel" class="overlay" role="dialog" aria-modal="true"><div class="sheet"><div style="font-size:32px;color:#4e8bbf">✿</div><h1>Sugestões de presente</h1><p>Sua presença torna esse dia ainda mais especial! Se desejar me presentear, deixo com carinho duas sugestões de lojas.</p><div class="store"><h2>Renner</h2><small>Rua Rivadávia Corrêa, 232 — Santana do Livramento/RS</small><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lojas%20Renner%20Rua%20Rivadavia%20Correa%20232%20Santana%20do%20Livramento%20RS">Ver localização ↗</a></div><div class="store"><h2>O Boticário</h2><small>Rua dos Andradas, 484 — Santana do Livramento/RS</small><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=O%20Boticario%20Rua%20dos%20Andradas%20484%20Santana%20do%20Livramento%20RS">Ver localização ↗</a></div><button class="back" id="back">← Voltar ao convite</button></div></section><script>const music=document.getElementById('music'),sound=document.getElementById('sound'),panel=document.getElementById('panel');music.volume=.5;function play(){music.play().then(()=>sound.textContent='♫ Pausar').catch(()=>sound.textContent='♪ Música')}window.addEventListener('load',play);sound.onclick=()=>{if(music.paused)play();else{music.pause();sound.textContent='♪ Música'}};document.getElementById('gift').onclick=()=>panel.classList.add('on');document.getElementById('back').onclick=()=>panel.classList.remove('on');panel.onclick=e=>{if(e.target===panel)panel.classList.remove('on')};document.onkeydown=e=>{if(e.key==='Escape')panel.classList.remove('on')}</script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="description" content="Convite digital de 15 anos da Daniele" />
+  <meta name="theme-color" content="#f8fbff" />
+  <title>Daniele • 15 anos</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#eef5fd;color:#0b3764;font-family:Georgia,'Times New Roman',serif}
+    body{display:grid;place-items:center}
+
+    .invite-wrap{position:relative;width:min(100vw,calc(100dvh * 941 / 1672));height:min(100dvh,calc(100vw * 1672 / 941));overflow:hidden;background:#fff;box-shadow:0 10px 35px rgba(19,56,100,.12)}
+    .invite-wrap img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}
+
+    .hit{position:absolute;top:72.6%;height:16.9%;display:block;border-radius:16px;outline-offset:-3px;transition:background .2s ease, transform .15s ease}
+    .hit:active{transform:scale(.985)}
+    .hit:focus-visible{outline:3px solid #4b8ec7;background:rgba(106,166,223,.16)}
+    .hit1{left:4.1%;width:21.2%}
+    .hit2{left:26.55%;width:21.2%}
+    .hit3{left:49.05%;width:21.2%}
+    .hit4{left:71.5%;width:24.1%}
+
+    .soundbar{position:fixed;top:12px;right:12px;z-index:60}
+    .soundbtn{width:42px;height:42px;border-radius:999px;border:1px solid #bfd6ea;background:rgba(255,255,255,.92);color:#0b4b83;display:grid;place-items:center;font-size:18px;cursor:pointer;box-shadow:0 4px 18px rgba(13,59,106,.16);backdrop-filter:blur(4px)}
+    .soundbtn:hover{background:#fff}
+    .soundbtn.off{opacity:.72}
+
+    .overlay-start{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:22px;background:linear-gradient(rgba(240,247,255,.78),rgba(240,247,255,.84)), url('convite.png') center/cover no-repeat}
+    .overlay-start::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.18);backdrop-filter:blur(10px)}
+    .start-card{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;color:#0b3f72;max-width:340px;padding:10px}
+    .mini-floral{font-size:15px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+    .start-title{font-size:32px;line-height:1.05;margin:0}
+    .start-sub{margin:0;font-size:15px;line-height:1.6;color:#31597f}
+
+    .seal-button{position:relative;width:184px;height:184px;border:0;background:none;cursor:pointer;padding:0;filter:drop-shadow(0 10px 24px rgba(22,70,119,.22))}
+    .seal-button:focus-visible{outline:3px solid #6ea8d8;outline-offset:8px;border-radius:999px}
+    .seal-flower{
+      position:absolute;inset:0;border-radius:50%;
+      background:
+        radial-gradient(circle at center, #ffffff 0 30%, transparent 31%),
+        radial-gradient(circle, rgba(120,175,227,.95) 0 58%, transparent 59%) center/100% 100% no-repeat;
+    }
+    .seal-flower::before{
+      content:'';position:absolute;inset:-6px;border-radius:50%;
+      background:
+        radial-gradient(circle at 50% 0%, #dbeeff 0 16px, transparent 17px),
+        radial-gradient(circle at 85% 15%, #dbeeff 0 16px, transparent 17px),
+        radial-gradient(circle at 100% 50%, #dbeeff 0 16px, transparent 17px),
+        radial-gradient(circle at 85% 85%, #dbeeff 0 16px, transparent 17px),
+        radial-gradient(circle at 50% 100%, #dbeeff 0 16px, transparent 17px),
+        radial-gradient(circle at 15% 85%, #dbeeff 0 16px, transparent 17px),
+        radial-gradient(circle at 0% 50%, #dbeeff 0 16px, transparent 17px),
+        radial-gradient(circle at 15% 15%, #dbeeff 0 16px, transparent 17px),
+        radial-gradient(circle at 68% 3%, #c8e2fb 0 14px, transparent 15px),
+        radial-gradient(circle at 97% 32%, #c8e2fb 0 14px, transparent 15px),
+        radial-gradient(circle at 97% 68%, #c8e2fb 0 14px, transparent 15px),
+        radial-gradient(circle at 68% 97%, #c8e2fb 0 14px, transparent 15px),
+        radial-gradient(circle at 32% 97%, #c8e2fb 0 14px, transparent 15px),
+        radial-gradient(circle at 3% 68%, #c8e2fb 0 14px, transparent 15px),
+        radial-gradient(circle at 3% 32%, #c8e2fb 0 14px, transparent 15px),
+        radial-gradient(circle at 32% 3%, #c8e2fb 0 14px, transparent 15px);
+      z-index:0;
+    }
+    .seal-center{
+      position:absolute;inset:18px;border-radius:50%;background:linear-gradient(180deg,#ffffff,#f7fbff);
+      border:2px solid #9cc6ea;display:flex;align-items:center;justify-content:center;flex-direction:column;
+      padding:18px;z-index:1;
+      box-shadow:inset 0 0 0 6px rgba(201,228,251,.55);
+    }
+    .seal-center .tiny{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#4876a3;margin-bottom:4px}
+    .seal-center .main{font-size:22px;line-height:1.15;color:#0b4378}
+    .seal-center .mini{font-size:13px;color:#50779b;margin-top:6px}
+
+    .overlay{position:fixed;inset:0;z-index:40;background:rgba(8,32,67,.35);display:none;align-items:center;justify-content:center;padding:20px}
+    .overlay.visible{display:flex}
+    .sheet{width:min(410px,100%);position:relative;text-align:center;max-height:92dvh;overflow:auto;border:1px solid #bcd0e4;border-radius:22px;background:#fffefa;box-shadow:0 18px 65px #081e4055;padding:34px 28px 28px}
+    .orn{font-size:30px;color:#3b75ad;line-height:1;margin-bottom:6px}
+    h1{font-size:26px;font-weight:normal;letter-spacing:.03em;margin:8px 0 14px;color:#082d58}
+    .intro{font-size:15px;line-height:1.6;margin:0 auto 23px;max-width:310px}
+    .store{padding:16px 8px;border-top:1px solid #d9e5f0}
+    .store h2{font-weight:normal;font-size:22px;margin:0 0 6px}
+    .store address{font-size:13px;font-style:normal;color:#546c83;margin:0 0 13px;line-height:1.4}
+    .nav{display:inline-flex;align-items:center;justify-content:center;min-width:175px;border-radius:30px;text-decoration:none;color:white;background:#0b4378;padding:12px 18px;font-size:14px;font-family:Arial,sans-serif}
+    .back{margin-top:15px;border:0;background:transparent;color:#164d80;font-size:15px;text-decoration:underline;cursor:pointer;padding:10px}
+    .close{position:absolute;right:10px;top:8px;border:0;background:transparent;color:#18466d;font-size:30px;cursor:pointer;padding:4px 10px}
+
+    @media (max-width:420px){
+      .start-title{font-size:28px}
+      .start-sub{font-size:14px}
+      .seal-button{width:170px;height:170px}
+      .seal-center .main{font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="soundbar">
+    <button id="soundToggle" class="soundbtn off" aria-label="Ativar música" title="Música">♫</button>
+  </div>
+
+  <main class="invite-wrap" aria-label="Convite de 15 anos da Daniele">
+    <img src="convite.png" alt="Daniele, 15 anos. Sexta-feira, 12 de fevereiro de 2027, às 20 horas, Clube Comercial, Rua dos Andradas 384, Centro, Santana do Livramento/RS. Confirmar presença até 30 de janeiro de 2027. Há quatro ícones interativos: confirmar presença, local da festa, presente em espécie e sugestões de presente." />
+
+    <a class="hit hit1" href="https://wa.me/5555999298604?text=Ol%C3%A1%21%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Daniele.%20Meu%20nome%20%C3%A9%3A%20" target="_blank" rel="noopener noreferrer" aria-label="Confirmar presença pelo WhatsApp"></a>
+    <a class="hit hit2" href="https://www.google.com/maps/search/?api=1&query=Clube%20Comercial%20Rua%20dos%20Andradas%20384%20Santana%20do%20Livramento%20RS" target="_blank" rel="noopener noreferrer" aria-label="Abrir local da festa"></a>
+    <a class="hit hit3" href="https://nubank.com.br/cobrar/vjddt/6aceb1f2-0e6e-4c75-825a-26c3c8984ac2" target="_blank" rel="noopener noreferrer" aria-label="Abrir presente em espécie via Pix"></a>
+    <button class="hit hit4" id="giftBtn" type="button" aria-label="Abrir sugestões de presente" style="background:none;border:0;padding:0"></button>
+  </main>
+
+  <section id="startOverlay" class="overlay-start" aria-label="Abertura do convite">
+    <div class="start-card">
+      <div class="mini-floral">Daniele • 15 anos</div>
+      <h1 class="start-title">Seja bem-vindo(a)</h1>
+      <p class="start-sub">Toque no selo para abrir o convite e ouvir a música. Se preferir, você pode desligar o som no botão do canto superior direito.</p>
+      <button id="openInviteBtn" class="seal-button" type="button" aria-label="Toque para abrir o convite">
+        <span class="seal-flower" aria-hidden="true"></span>
+        <span class="seal-center">
+          <span class="tiny">toque para</span>
+          <span class="main">abrir o<br>convite</span>
+          <span class="mini">❀</span>
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <section id="giftPanel" class="overlay" role="dialog" aria-modal="true" aria-labelledby="giftTitle">
+    <div class="sheet">
+      <button class="close" id="closeBtn" aria-label="Fechar sugestões">×</button>
+      <div class="orn">❀</div>
+      <h1 id="giftTitle">Sugestões de presente</h1>
+      <p class="intro">Sua presença torna esse dia ainda mais especial! Se desejar me presentear, deixo com carinho duas sugestões de lojas.</p>
+      <div class="store">
+        <h2>Renner</h2>
+        <address>Rua Rivadávia Corrêa, 232<br>Santana do Livramento/RS</address>
+        <a class="nav" href="https://www.google.com/maps/search/?api=1&query=Lojas%20Renner%20Rua%20Rivadavia%20Correa%20232%20Santana%20do%20Livramento%20RS" target="_blank" rel="noopener noreferrer">Ver localização ↗</a>
+      </div>
+      <div class="store">
+        <h2>O Boticário</h2>
+        <address>Rua dos Andradas, 484<br>Santana do Livramento/RS</address>
+        <a class="nav" href="https://www.google.com/maps/search/?api=1&query=O%20Boticario%20Rua%20dos%20Andradas%20484%20Santana%20do%20Livramento%20RS" target="_blank" rel="noopener noreferrer">Ver localização ↗</a>
+      </div>
+      <button class="back" id="backBtn">← Voltar ao convite</button>
+    </div>
+  </section>
+
+  <audio id="bgMusic" preload="auto" loop playsinline>
+    <source src="musica-daniele.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const soundBtn = document.getElementById('soundToggle');
+    const startOverlay = document.getElementById('startOverlay');
+    const openInviteBtn = document.getElementById('openInviteBtn');
+    const giftPanel = document.getElementById('giftPanel');
+    const giftBtn = document.getElementById('giftBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const backBtn = document.getElementById('backBtn');
+
+    let opened = false;
+
+    function updateSoundUI(){
+      const playing = !audio.paused;
+      soundBtn.classList.toggle('off', !playing);
+      soundBtn.textContent = playing ? '♫' : '♪';
+      soundBtn.setAttribute('aria-label', playing ? 'Desligar música' : 'Ligar música');
+      soundBtn.title = playing ? 'Desligar música' : 'Ligar música';
+    }
+
+    async function playAudio(){
+      try{
+        await audio.play();
+      }catch(e){
+        // Navegador pode bloquear fora de gesto; não faz nada.
+      }
+      updateSoundUI();
+    }
+
+    function pauseAudio(){
+      audio.pause();
+      updateSoundUI();
+    }
+
+    soundBtn.addEventListener('click', async () => {
+      if(audio.paused){
+        if(!opened){
+          startOverlay.style.display = 'none';
+          opened = true;
+        }
+        await playAudio();
+      } else {
+        pauseAudio();
+      }
+    });
+
+    openInviteBtn.addEventListener('click', async () => {
+      opened = true;
+      startOverlay.style.display = 'none';
+      await playAudio();
+    });
+
+    giftBtn.addEventListener('click', () => {
+      giftPanel.classList.add('visible');
+      closeBtn.focus();
+    });
+
+    function closeGift(){
+      giftPanel.classList.remove('visible');
+      giftBtn.focus();
+    }
+
+    closeBtn.addEventListener('click', closeGift);
+    backBtn.addEventListener('click', closeGift);
+    giftPanel.addEventListener('click', (e) => { if(e.target === giftPanel) closeGift(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && giftPanel.classList.contains('visible')) closeGift(); });
+
+    audio.volume = 0.50;
+    updateSoundUI();
+  </script>
+</body>
+</html>
